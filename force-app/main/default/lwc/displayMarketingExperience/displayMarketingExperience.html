@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Marketing Experiences" icon-name="custom:custom15">
+      <div class="slds-no-flex">
+          <button class="slds-button slds-button_neutral">New</button>
+        </div>
+      <lightning-datatable
+        key-field="id"
+        data={data}
+        columns={columns}
+      ></lightning-datatable>
+  
+      <lightning-layout horizontal-align="space">
+        <lightning-layout-item padding="around-small">
+          <lightning-button-icon
+            icon-name="utility:chevronleft"
+            onclick={handlePrevious}
+          ></lightning-button-icon>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small">
+          <template for:each={listOfPages} for:item="page">
+            <button
+              class="slds-m-around_x-small"
+              key={page}
+              onclick={handlePageButtonClick}
+              title={page}
+            >
+              {page}
+            </button>
+          </template>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small">
+          <lightning-button-icon
+            icon-name="utility:chevronright"
+            onclick={handleNext}
+          ></lightning-button-icon>
+        </lightning-layout-item>
+      </lightning-layout>
+    </lightning-card>
+  </template>
